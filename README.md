@@ -22,8 +22,8 @@ Use **Add your photos** to add your own images and videos. Captions, dates, and 
 1. Create a Supabase project. In **Project Settings → API**, copy the project URL and the public anon/publishable key.
 2. In the Supabase SQL Editor, run [`supabase/setup.sql`](./supabase/setup.sql).
 3. In **Authentication → Providers / Sign-in**, disable public email sign-ups. In **Authentication → Users**, create the one owner account used to edit the site. Do not put its password or a Supabase service-role/secret key in this repository.
-4. For local work, copy `.env.example` to `.env.local` and fill in `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`. `.env.local` is ignored by Git. Run `npm run dev`.
-5. To publish on Vercel, import the GitHub repository and set the same two `VITE_` variables in the Vercel project's environment variables before deploying. Vercel uses `npm run build` and `dist` as the output directory.
+4. For local work, add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` to `.env.local` (if it does not exist, start from `.env.example`). If Vercel CLI has already created `.env.local`, preserve existing entries and append these two variables. `.env.local` is ignored by Git. Run `npm run dev`.
+5. The Vercel project `anniversary` is created and linked locally. Add the same two `VITE_` variables to its Production, Preview, and Development environments, then deploy. Vercel uses `npm run build` and `dist` as the output directory. You can connect the GitHub repository to Vercel for automatic deployments.
 6. Open the public site, choose **Make it yours**, and sign in with the owner account to add or edit shared content.
 
 The website and uploaded media are public to anyone with the site link, as requested. The GitHub repository contains source code only; never commit `.env.local`, passwords, personal photos, or service-role keys. Supabase serves public reads, while edits and uploads require the owner to sign in. The public site is not a private or unlisted-access boundary.
